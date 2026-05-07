@@ -33,4 +33,10 @@ Photos downloaded under the Unsplash License:
 - US government building: `https://unsplash.com/photos/yZQDXSp6a5I`
 - Facilities/tools workshop: `https://unsplash.com/photos/uqh5Pbv0d4s`
 - Environmental cleanup: `https://unsplash.com/photos/tX-A7eBc45Q`
+- Cyber/IT tile: `https://unsplash.com/photos/dXdr1RGvcoM`
+- Software tile: `https://unsplash.com/photos/zE007SNgcdE`
+- Logistics tile: `https://unsplash.com/photos/28b8xlTT5t4`
+- Program management tile: `https://unsplash.com/photos/CS0D08N2n9M`
+- Engineering tile: `https://unsplash.com/photos/SRqJ3eli-4I`
+- Modeling/simulation tile: `https://unsplash.com/photos/0xNbk7D_s6U`
 
