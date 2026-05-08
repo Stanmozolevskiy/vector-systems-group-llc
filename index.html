@@ -17,7 +17,7 @@
   <body>
     <a class="skip" href="#main">Skip to content</a>
 
-    <header class="topbar topbar--overlay" aria-label="Header">
+    <header class="topbar" aria-label="Header">
       <div class="container topbar-inner">
         <a class="brand" href="#top" aria-label="Vector Systems Group LLC">
           <span class="brand-logo" aria-hidden="true">
@@ -45,7 +45,7 @@
     <main id="main">
       <section id="top" class="hero2" aria-label="Hero">
         <div class="hero2-media" aria-hidden="true">
-          <img src="assets/hero.jpg" alt="" />
+          <img src="assets/us-government.jpg" alt="" />
         </div>
         <div class="hero2-overlay" aria-hidden="true"></div>
         <div class="container hero2-inner">
@@ -109,36 +109,6 @@
         </div>
       </section>
 
-      <section class="section" aria-label="Highlights">
-        <div class="container">
-          <div class="promo-grid" role="list" aria-label="Highlights">
-            <article class="promo promo--blue" role="listitem">
-              <div class="promo-copy">
-                <div class="eyebrow">News &amp; updates</div>
-                <h2 class="promo-title">Ready for teaming and rapid response</h2>
-                <p class="promo-text">Capability introductions, subcontracting, and set-aside opportunities—responded to quickly and professionally.</p>
-                <a class="btn primary" href="#contact">Contact Stan</a>
-              </div>
-              <div class="promo-media" aria-hidden="true">
-                <img src="assets/planning.jpg" alt="" loading="lazy" decoding="async" />
-              </div>
-            </article>
-
-            <article class="promo promo--dark" role="listitem">
-              <div class="promo-copy">
-                <div class="eyebrow">Join our team</div>
-                <h2 class="promo-title">Partner-enabled delivery</h2>
-                <p class="promo-text">We execute directly or with trusted partners to scale staffing, logistics, and specialty coverage.</p>
-                <a class="btn" href="#capabilities">View services</a>
-              </div>
-              <div class="promo-media" aria-hidden="true">
-                <img src="assets/servers.jpg" alt="" loading="lazy" decoding="async" />
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section id="about" class="section" aria-label="About Us">
         <div class="container">
           <div class="panel pad">
@@ -171,13 +141,37 @@
 
       <section class="section" aria-label="Representative work areas">
         <div class="container">
-          <div class="panel pad">
-            <h2>Representative work areas</h2>
-            <p class="lead" style="margin-top:0">A few examples of mission support areas we align to and coordinate.</p>
-            <div class="image-strip" aria-label="Work area images">
-              <img src="assets/environmental.jpg" alt="Environmental field work" loading="lazy" decoding="async" />
-              <img src="assets/tools.jpg" alt="Tools and maintenance environment" loading="lazy" decoding="async" />
-              <img src="assets/datacenter.jpg" alt="Data center interior" loading="lazy" decoding="async" />
+          <div class="split">
+            <div class="split-card">
+              <div class="split-copy">
+                <div class="eyebrow">News & updates</div>
+                <h2 class="split-title">Capability introductions & teaming</h2>
+                <p class="lead" style="margin:0">
+                  We provide a concise capability statement and respond quickly to teaming and subcontracting inquiries.
+                </p>
+                <div class="cta-row" style="margin-top:14px">
+                  <a class="btn primary" href="#contact">Contact Stan</a>
+                </div>
+              </div>
+              <div class="split-media" aria-hidden="true">
+                <img src="assets/planning.jpg" alt="" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="split-card alt">
+              <div class="split-copy">
+                <div class="eyebrow">Join our network</div>
+                <h2 class="split-title">Partner-enabled delivery</h2>
+                <p class="lead" style="margin:0">
+                  We execute directly or with trusted partners to scale staffing, logistics, and specialty coverage.
+                </p>
+                <div class="cta-row" style="margin-top:14px">
+                  <a class="btn" href="#capabilities">View services</a>
+                </div>
+              </div>
+              <div class="split-media" aria-hidden="true">
+                <img src="assets/servers.jpg" alt="" loading="lazy" decoding="async" />
+              </div>
             </div>
           </div>
         </div>
@@ -194,19 +188,19 @@
 
           <div class="tiles" role="list" aria-label="Services">
             <a class="tile" role="listitem" href="#contact">
-              <img src="assets/environmental.jpg" alt="Environmental field work" loading="lazy" decoding="async" />
+              <img src="assets/environmental-field.jpg" alt="Environmental field work" loading="lazy" decoding="async" />
               <span class="tile-label">Environmental & field services</span>
             </a>
             <a class="tile" role="listitem" href="#contact">
-              <img src="assets/tools.jpg" alt="Facilities support" loading="lazy" decoding="async" />
+              <img src="assets/facilities-support.jpg" alt="Facilities support" loading="lazy" decoding="async" />
               <span class="tile-label">Facilities & operations support</span>
             </a>
             <a class="tile" role="listitem" href="#contact">
-              <img src="assets/tile-planning.jpg" alt="Planning and project coordination" loading="lazy" decoding="async" />
+              <img src="assets/planning.jpg" alt="Planning and project coordination" loading="lazy" decoding="async" />
               <span class="tile-label">Project coordination</span>
             </a>
             <a class="tile" role="listitem" href="#contact">
-              <img src="assets/tile-tech.jpg" alt="Server racks in a data center" loading="lazy" decoding="async" />
+              <img src="assets/servers.jpg" alt="Server racks in a data center" loading="lazy" decoding="async" />
               <span class="tile-label">Technology support</span>
             </a>
             <a class="tile" role="listitem" href="#contact">
@@ -236,19 +230,6 @@
                 </ul>
               </div>
             </div>
-        </div>
-      </section>
-
-      <section class="cta-band" aria-label="Experience callout">
-        <div class="container cta-band-inner">
-          <div class="cta-band-copy">
-            <h2>Built for government contracting delivery.</h2>
-            <p>We&rsquo;re ready to support your requirement with clear communication, compliant execution, and a scalable partner network.</p>
-          </div>
-          <div class="cta-band-actions">
-            <a class="btn primary" href="#contact">Request intro</a>
-            <a class="btn" href="mailto:stan@vectorsystemsco.com?subject=Vector%20Systems%20Group%20LLC%20%E2%80%94%20Inquiry">Email</a>
-          </div>
         </div>
       </section>
 
@@ -333,33 +314,15 @@
       </section>
     </main>
 
-    <footer class="footer" aria-label="Footer">
-      <div class="container footer-grid">
-        <div class="footer-col">
-          <div class="footer-brand">Vector Systems Group LLC</div>
-          <div class="footer-muted">Small Business Contractor · Portsmouth, NH</div>
-          <div class="footer-muted" style="margin-top:10px">CAGE: <strong>1ZMB1</strong> · UEI: <strong>MMU3HA91QZS1</strong></div>
-          <div class="footer-muted">NAICS: <strong>562991</strong> · SAM.gov: <strong>Registered</strong></div>
+    <footer aria-label="Footer">
+      <div class="container foot">
+        <div class="meta" aria-label="Identifiers">
+          <span class="chip">CAGE: <strong>1ZMB1</strong></span>
+          <span class="chip">UEI: <strong>MMU3HA91QZS1</strong></span>
+          <span class="chip">NAICS: <strong>562991</strong></span>
+          <span class="chip">SAM.gov: <strong>Registered</strong></span>
         </div>
-
-        <div class="footer-col">
-          <div class="footer-head">Contact</div>
-          <a class="footer-link" href="tel:+16039696375">603-969-6375</a>
-          <a class="footer-link" href="mailto:stan@vectorsystemsco.com">stan@vectorsystemsco.com</a>
-          <div class="footer-muted">Portsmouth, NH 03801</div>
-        </div>
-
-        <div class="footer-col">
-          <div class="footer-head">Sections</div>
-          <a class="footer-link" href="#about">About</a>
-          <a class="footer-link" href="#capabilities">Services</a>
-          <a class="footer-link" href="#performance">Past performance</a>
-          <a class="footer-link" href="#contact">Contact</a>
-        </div>
-      </div>
-
-      <div class="container footer-bottom">
-        <small>&copy; <span id="year"></span> Vector Systems Group LLC.</small>
+        <small>&copy; <span id="year"></span> Vector Systems Group LLC. Portsmouth, NH.</small>
       </div>
     </footer>
 
