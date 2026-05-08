@@ -1,364 +1,687 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f6f8fc" />
-    <meta name="description" content="Vector Systems Group LLC ó Portsmouth, NH small business contractor supporting federal, state, and local missions with responsive services and partner-ready execution." />
-    <title>Vector Systems Group LLC | Small Business Contractor</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1B3A6B" />
+  <meta name="description" content="Vector Systems Group LLC ó Portsmouth, NH small business federal contractor. Sanitary & waste services, facilities support, and subcontractor management." />
+  <title>Vector Systems Group LLC | Federal Contract Services</title>
+  <meta property="og:title" content="Vector Systems Group LLC" />
+  <meta property="og:description" content="Reliable contract services for the federal government. Small Business Contractor | Portsmouth, NH | CAGE: 1ZMB1" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/vector_systems_group_logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --navy-dark: #122849;
+      --accent: #4A90D9;
+      --white: #FFFFFF;
+      --grey: #F5F5F5;
+      --text: #1f2a44;
+      --muted: #5a6478;
+      --border: rgba(15, 23, 42, .10);
+      --shadow: 0 14px 38px rgba(2, 6, 23, .12);
+      --shadow-sm: 0 8px 22px rgba(2, 6, 23, .08);
+      --radius: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
-    <meta property="og:title" content="Vector Systems Group LLC" />
-    <meta property="og:description" content="Small Business Contractor | Portsmouth, NH | CAGE: 1ZMB1 | UEI: MMU3HA91QZS1" />
-    <meta property="og:type" content="website" />
+    .skip {
+      position: absolute; left: -999px; top: -999px;
+    }
+    .skip:focus {
+      left: 16px; top: 16px;
+      padding: 10px 12px;
+      background: var(--white); color: var(--navy);
+      border-radius: 8px; z-index: 10001;
+      outline: 2px solid var(--accent);
+    }
 
-    <link rel="icon" href="assets/vector_systems_group_logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <a class="skip" href="#main">Skip to content</a>
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: var(--navy);
+      color: #fff;
+      z-index: 1000;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 12px 0;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: #fff;
+    }
+    .nav-logo { width: 38px; height: 38px; flex: 0 0 auto; }
+    .nav-name { font-weight: 800; font-size: 16px; letter-spacing: .2px; line-height: 1.1; }
+    .nav-tag { font-size: 11px; opacity: .8; letter-spacing: .25px; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a {
+      text-decoration: none; color: rgba(255, 255, 255, .86);
+      padding: 9px 14px; border-radius: 8px; font-size: 14px; font-weight: 500;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible {
+      background: rgba(255, 255, 255, .10); color: #fff; outline: none;
+    }
+    .nav-toggle {
+      display: none;
+      background: transparent; border: 1px solid rgba(255, 255, 255, .25);
+      color: #fff; width: 42px; height: 38px; border-radius: 8px; cursor: pointer;
+      align-items: center; justify-content: center;
+    }
+    .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .nav-toggle svg { width: 22px; height: 22px; }
 
-    <header class="topbar" aria-label="Header">
-      <div class="container topbar-inner">
-        <a class="brand" href="#top" aria-label="Vector Systems Group LLC">
-          <span class="brand-logo" aria-hidden="true">
-            <svg viewBox="0 0 200 200" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="10" width="180" height="180" rx="16" fill="#1B3A6B"></rect>
-              <polygon points="45,55 100,150 155,55 134,55 100,115 66,55" fill="#ffffff"></polygon>
-              <rect x="91" y="104" width="18" height="68" rx="4" fill="#4A90D9"></rect>
-            </svg>
-          </span>
-          <span class="brand-text">
-            <span class="name">Vector Systems Group LLC</span>
-            <span class="tag">Small Business Contractor &middot; Portsmouth, NH</span>
-          </span>
-        </a>
+    /* HERO */
+    .hero { position: relative; min-height: 620px; padding-top: 110px; color: #fff; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('assets/us-government.jpg');
+      background-size: cover; background-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg,
+        rgba(18, 40, 73, .92) 0%,
+        rgba(27, 58, 107, .78) 50%,
+        rgba(18, 40, 73, .65) 100%);
+    }
+    .hero-inner { position: relative; z-index: 1; padding: 50px 0 90px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; letter-spacing: .35px; text-transform: uppercase;
+      padding: 7px 12px; border-radius: 999px;
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .22);
+      color: rgba(255, 255, 255, .92);
+    }
+    .hero h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(34px, 5.4vw, 56px);
+      line-height: 1.06; letter-spacing: -.6px; font-weight: 800;
+      max-width: 22ch;
+    }
+    .hero p { margin: 0 0 22px; font-size: 17px; max-width: 60ch; color: rgba(255, 255, 255, .88); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
-        <nav class="nav" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#performance">Past Performance</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 13px 22px; border-radius: var(--radius);
+      font-weight: 700; font-size: 14px; letter-spacing: .15px;
+      text-decoration: none; cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease, filter .2s ease;
+    }
+    .btn--primary { background: var(--navy); color: #fff; }
+    .btn--primary:hover, .btn--primary:focus-visible { background: var(--navy-dark); transform: translateY(-1px); outline: none; }
+    .btn--ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .55); }
+    .btn--ghost:hover, .btn--ghost:focus-visible { background: rgba(255, 255, 255, .10); outline: none; }
+    .btn--accent { background: var(--accent); color: #fff; }
+    .btn--accent:hover, .btn--accent:focus-visible { filter: brightness(1.05); transform: translateY(-1px); outline: none; }
+
+    /* STATS */
+    .stats { background: var(--navy-dark); color: #fff; }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat {
+      padding: 22px 16px; text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, .10);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-k { font-size: 12px; letter-spacing: .35px; text-transform: uppercase; opacity: .75; }
+    .stat-v { font-weight: 800; font-size: 18px; margin-top: 4px; }
+
+    /* SECTION BASE */
+    section.s { padding: 78px 0; scroll-margin-top: 80px; }
+    .s-head { text-align: center; max-width: 64ch; margin: 0 auto 40px; }
+    .s-eyebrow { font-size: 12px; letter-spacing: .4px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+    .s-title { margin: 8px 0 10px; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -.4px; font-weight: 800; color: var(--navy-dark); }
+    .s-text { margin: 0; color: var(--muted); font-size: 16px; }
+
+    /* AGENCIES */
+    .agencies { background: #fff; }
+    .agency-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; align-items: stretch; }
+    .agency {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 14px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+      filter: grayscale(1);
+      opacity: .85;
+      transition: filter .2s ease, opacity .2s ease, transform .2s ease;
+      min-height: 150px;
+    }
+    .agency:hover, .agency:focus-within { filter: grayscale(0); opacity: 1; transform: translateY(-2px); }
+    .agency-medal {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #e8edf6 70%);
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 14px; letter-spacing: .5px;
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .8);
+    }
+    .agency-name { font-size: 13px; font-weight: 700; color: var(--navy-dark); text-align: center; }
+    .agency-sub { font-size: 11px; color: var(--muted); text-align: center; }
+
+    /* WHO WE ARE */
+    .who { background: var(--white); }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .who-image {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow); aspect-ratio: 4 / 3; background: #ddd;
+    }
+    .who-image img { width: 100%; height: 100%; object-fit: cover; }
+    .who h2 { margin: 8px 0 12px; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.4px; color: var(--navy-dark); font-weight: 800; }
+    .who p { color: var(--muted); margin: 0 0 12px; font-size: 16px; }
+    .who-ids { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .who-id {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px;
+      background: var(--grey); border: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; color: var(--navy-dark);
+    }
+    .who-id b { color: var(--accent); }
+
+    /* SERVICES */
+    .services { background: var(--navy-dark); color: #fff; }
+    .services .s-title { color: #fff; }
+    .services .s-text { color: rgba(255, 255, 255, .78); }
+    .services .s-eyebrow { color: #9CC6F1; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .service {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: 14px;
+      padding: 26px 22px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .service:hover { transform: translateY(-3px); background: rgba(255, 255, 255, .07); }
+    .service-icon {
+      width: 54px; height: 54px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #6db1ee);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .service-icon svg { width: 28px; height: 28px; }
+    .service h3 { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
+    .service p { margin: 0; color: rgba(255, 255, 255, .80); font-size: 14.5px; }
+
+    /* WHY (capabilities) */
+    .why { background: var(--grey); }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .why-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 28px 22px; text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .why-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(74, 144, 217, .12);
+      color: var(--navy);
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .why-icon svg { width: 28px; height: 28px; }
+    .why-card h3 { margin: 0 0 8px; font-size: 17px; color: var(--navy-dark); font-weight: 700; }
+    .why-card p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+    /* CONTACT */
+    .contact { background: #fff; }
+    .contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: start; }
+    .contact-info { padding: 6px 4px; }
+    .contact-info h2 { margin: 8px 0 10px; font-size: clamp(24px, 2.6vw, 30px); color: var(--navy-dark); font-weight: 800; letter-spacing: -.3px; }
+    .contact-info p { color: var(--muted); margin: 0 0 18px; }
+    .contact-list { list-style: none; margin: 0; padding: 0; }
+    .contact-list li {
+      display: flex; align-items: center; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid var(--border); color: var(--text);
+    }
+    .contact-list li:last-child { border-bottom: none; }
+    .contact-list svg { color: var(--accent); width: 20px; height: 20px; flex-shrink: 0; }
+    .contact-list a { color: var(--navy-dark); text-decoration: none; font-weight: 600; }
+    .contact-list a:hover { color: var(--accent); }
+    .contact-form {
+      background: var(--grey); border: 1px solid var(--border); border-radius: 16px;
+      padding: 26px;
+    }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: var(--navy-dark); margin-bottom: 6px; }
+    .field input, .field textarea {
+      width: 100%; padding: 12px 14px; font-family: inherit; font-size: 15px;
+      border-radius: 10px; border: 1px solid var(--border);
+      background: #fff; color: var(--text);
+    }
+    .field input:focus, .field textarea:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(74, 144, 217, .18);
+    }
+    .field textarea { min-height: 130px; resize: vertical; }
+    .form-msg {
+      margin-top: 12px; padding: 10px 12px; border-radius: 10px;
+      font-size: 13px; display: none;
+    }
+    .form-msg--ok { background: rgba(34, 197, 94, .10); color: #15803d; display: block; }
+    .form-msg--err { background: rgba(220, 38, 38, .10); color: #b91c1c; display: block; }
+
+    /* FOOTER */
+    .footer { background: var(--navy-dark); color: rgba(255, 255, 255, .85); }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px;
+      padding: 50px 0 26px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 12px; }
+    .footer-logo { width: 44px; height: 44px; flex-shrink: 0; }
+    .footer-name { font-weight: 800; color: #fff; font-size: 17px; }
+    .footer-tag { font-size: 13px; opacity: .8; }
+    .footer h4 { margin: 0 0 12px; font-size: 14px; color: #fff; letter-spacing: .25px; }
+    .footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { color: rgba(255, 255, 255, .85); text-decoration: none; font-size: 14px; }
+    .footer-links a:hover { color: #fff; }
+    .footer-codes { font-size: 13px; line-height: 1.9; }
+    .footer-codes b { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .10);
+      padding: 16px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12.5px; color: rgba(255, 255, 255, .66); flex-wrap: wrap; gap: 8px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 880px) {
+      .nav-toggle { display: inline-flex; }
+      .nav-tag { display: none; }
+      .nav-links {
+        position: fixed; top: 62px; left: 0; right: 0;
+        background: var(--navy);
+        flex-direction: column; padding: 0 16px;
+        max-height: 0; overflow: hidden;
+        transition: max-height .25s ease, padding .25s ease;
+        border-top: 1px solid rgba(255, 255, 255, .10);
+      }
+      .nav-links.is-open { max-height: 320px; padding: 12px 16px 18px; }
+      .nav-links a { padding: 12px 14px; font-size: 15px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid rgba(255, 255, 255, .10); }
+      .agency-row { grid-template-columns: repeat(2, 1fr); }
+      .who-grid, .service-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .hero { min-height: 540px; padding-top: 90px; }
+      section.s { padding: 56px 0; }
+    }
+    @media (max-width: 480px) {
+      .agency-row { grid-template-columns: 1fr 1fr; }
+      .stat-v { font-size: 16px; }
+      .nav-name { font-size: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn:hover, .service:hover, .agency:hover, .btn--primary:hover, .btn--accent:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#hero">Skip to content</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="#hero" aria-label="Vector Systems Group LLC home">
+        <span class="nav-logo" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="180" height="180" rx="18" fill="#FFFFFF"/>
+            <polygon points="45,55 100,150 155,55 134,55 100,115 66,55" fill="#1B3A6B"/>
+            <rect x="91" y="104" width="18" height="68" rx="4" fill="#4A90D9"/>
+          </svg>
+        </span>
+        <div>
+          <div class="nav-name">Vector Systems Group LLC</div>
+          <div class="nav-tag">Small Business Federal Contractor</div>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#who">Who We Are</a>
+        <a href="#services">Services</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <span class="hero-eyebrow">United States ∑ Small Business ∑ SAM.gov registered</span>
+        <h1>Reliable Contract Services for the Federal Government</h1>
+        <p>Small Business Contractor &nbsp;|&nbsp; Portsmouth, NH</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#who" aria-label="Learn more about Vector Systems Group">Learn More</a>
+          <a class="btn btn--ghost" href="#contact">Contact Us</a>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main id="main">
-      <section id="top" class="hero2" aria-label="Hero">
-        <div class="hero2-media" aria-hidden="true">
-          <img src="assets/us-government.jpg" alt="" />
-        </div>
-        <div class="hero2-overlay" aria-hidden="true"></div>
-        <div class="container hero2-inner">
-          <div class="hero2-content">
-            <div class="kicker2">
-              <span class="pill2">SAM.gov Registered (active)</span>
-              <span class="pill2">Small Business</span>
-              <span class="pill2 flag2" aria-label="American flag" title="United States">
-                <svg viewBox="0 0 190 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
-                  <rect width="190" height="100" fill="#fff"/>
-                  <g fill="#B91C1C">
-                    <rect y="0" width="190" height="7.7"/>
-                    <rect y="15.4" width="190" height="7.7"/>
-                    <rect y="30.8" width="190" height="7.7"/>
-                    <rect y="46.2" width="190" height="7.7"/>
-                    <rect y="61.6" width="190" height="7.7"/>
-                    <rect y="77.0" width="190" height="7.7"/>
-                    <rect y="92.3" width="190" height="7.7"/>
-                  </g>
-                  <rect width="76" height="53.9" fill="#1B3A6B"/>
-                  <g fill="#fff" opacity=".95">
-                    <circle cx="10" cy="10" r="2.1"/><circle cx="22" cy="10" r="2.1"/><circle cx="34" cy="10" r="2.1"/><circle cx="46" cy="10" r="2.1"/><circle cx="58" cy="10" r="2.1"/><circle cx="70" cy="10" r="2.1"/>
-                    <circle cx="16" cy="18" r="2.1"/><circle cx="28" cy="18" r="2.1"/><circle cx="40" cy="18" r="2.1"/><circle cx="52" cy="18" r="2.1"/><circle cx="64" cy="18" r="2.1"/>
-                    <circle cx="10" cy="26" r="2.1"/><circle cx="22" cy="26" r="2.1"/><circle cx="34" cy="26" r="2.1"/><circle cx="46" cy="26" r="2.1"/><circle cx="58" cy="26" r="2.1"/><circle cx="70" cy="26" r="2.1"/>
-                    <circle cx="16" cy="34" r="2.1"/><circle cx="28" cy="34" r="2.1"/><circle cx="40" cy="34" r="2.1"/><circle cx="52" cy="34" r="2.1"/><circle cx="64" cy="34" r="2.1"/>
-                    <circle cx="10" cy="42" r="2.1"/><circle cx="22" cy="42" r="2.1"/><circle cx="34" cy="42" r="2.1"/><circle cx="46" cy="42" r="2.1"/><circle cx="58" cy="42" r="2.1"/><circle cx="70" cy="42" r="2.1"/>
-                  </g>
-                </svg>
-              </span>
-            </div>
-
-            <h1 class="hero2-title">Innovative solutions today,<br />ensuring results tomorrow.</h1>
-            <p class="hero2-lead">
-              US based Vector Systems Group LLC is a Portsmouth, NH based small business providing reliable services and coordination across a wide range of federal contracting domains.
-            </p>
-
-            <div class="cta-row">
-              <a class="btn primary" href="#contact">Request a capabilities intro</a>
-              <a class="btn" href="#capabilities">View services</a>
-            </div>
+    <section class="stats" aria-label="Quick facts">
+      <div class="container">
+        <div class="stats-inner">
+          <div class="stat">
+            <div class="stat-k">SAM.gov</div>
+            <div class="stat-v">Registered (Active)</div>
           </div>
-
-          <div class="hero2-cards" aria-label="Key identifiers">
-            <div class="stat">
-              <div class="stat-k">CAGE</div>
-              <div class="stat-v">1ZMB1</div>
-            </div>
-            <div class="stat">
-              <div class="stat-k">UEI</div>
-              <div class="stat-v">MMU3HA91QZS1</div>
-            </div>
-            <div class="stat">
-              <div class="stat-k">NAICS</div>
-              <div class="stat-v">562991</div>
-            </div>
-            <div class="stat">
-              <div class="stat-k">Location</div>
-              <div class="stat-v">Portsmouth, NH 03801</div>
-            </div>
+          <div class="stat">
+            <div class="stat-k">CAGE</div>
+            <div class="stat-v">1ZMB1</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">Primary NAICS</div>
+            <div class="stat-v">562991</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">Designation</div>
+            <div class="stat-v">Small Business</div>
           </div>
         </div>
-      </section>
-
-      <section id="about" class="section" aria-label="About Us">
-        <div class="container">
-          <div class="panel pad">
-            <h2>About Vector Systems Group LLC</h2>
-            <div class="two-col">
-              <div>
-                <p class="lead" style="margin-top:0">
-                  US based Vector Systems Group LLC is a Portsmouth, NH based small business supporting federal customers and teaming partners with responsive service delivery and clear communication.
-                </p>
-                <ul class="list">
-                  <li><strong>Headquarters</strong>: Portsmouth, NH 03801</li>
-                  <li><strong>Small Business</strong>: eligible for set-aside opportunities</li>
-                  <li><strong>Identifiers</strong>: CAGE 1ZMB1 &middot; UEI MMU3HA91QZS1</li>
-                </ul>
-              </div>
-              <div>
-                <ul class="list">
-                  <li><strong>SAM.gov</strong>: Registered (active)</li>
-                  <li><strong>NAICS</strong>: 562991 (and additional NAICS as pursued)</li>
-                  <li><strong>Approach</strong>: compliant execution, documentation, and partner-enabled scalability</li>
-                </ul>
-                <p class="hint" style="margin:10px 0 0">
-                  Need a one-page capability statement? Use the contact form and we&rsquo;ll send a PDF tailored to your requirement.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-label="Representative work areas">
-        <div class="container">
-          <div class="split">
-            <div class="split-card">
-              <div class="split-copy">
-                <div class="eyebrow">News & updates</div>
-                <h2 class="split-title">Capability introductions & teaming</h2>
-                <p class="lead" style="margin:0">
-                  We provide a concise capability statement and respond quickly to teaming and subcontracting inquiries.
-                </p>
-                <div class="cta-row" style="margin-top:14px">
-                  <a class="btn primary" href="#contact">Contact Stan</a>
-                </div>
-              </div>
-              <div class="split-media" aria-hidden="true">
-                <img src="assets/planning.jpg" alt="" loading="lazy" decoding="async" />
-              </div>
-            </div>
-
-            <div class="split-card alt">
-              <div class="split-copy">
-                <div class="eyebrow">Join our network</div>
-                <h2 class="split-title">Partner-enabled delivery</h2>
-                <p class="lead" style="margin:0">
-                  We execute directly or with trusted partners to scale staffing, logistics, and specialty coverage.
-                </p>
-                <div class="cta-row" style="margin-top:14px">
-                  <a class="btn" href="#capabilities">View services</a>
-                </div>
-              </div>
-              <div class="split-media" aria-hidden="true">
-                <img src="assets/servers.jpg" alt="" loading="lazy" decoding="async" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="capabilities" class="section" aria-label="Capabilities">
-        <div class="container">
-          <div class="section-head">
-            <h2>Our Services</h2>
-            <p class="lead" style="margin:0">
-              A clear, image-forward view of how we support mission delivery across government contracting domains.
-            </p>
-          </div>
-
-          <div class="tiles" role="list" aria-label="Services">
-            <a class="tile" role="listitem" href="#contact">
-              <img src="assets/environmental-field.jpg" alt="Environmental field work" loading="lazy" decoding="async" />
-              <span class="tile-label">Environmental & field services</span>
-            </a>
-            <a class="tile" role="listitem" href="#contact">
-              <img src="assets/facilities-support.jpg" alt="Facilities support" loading="lazy" decoding="async" />
-              <span class="tile-label">Facilities & operations support</span>
-            </a>
-            <a class="tile" role="listitem" href="#contact">
-              <img src="assets/planning.jpg" alt="Planning and project coordination" loading="lazy" decoding="async" />
-              <span class="tile-label">Project coordination</span>
-            </a>
-            <a class="tile" role="listitem" href="#contact">
-              <img src="assets/servers.jpg" alt="Server racks in a data center" loading="lazy" decoding="async" />
-              <span class="tile-label">Technology support</span>
-            </a>
-            <a class="tile" role="listitem" href="#contact">
-              <img src="assets/datacenter.jpg" alt="Data center interior" loading="lazy" decoding="async" />
-              <span class="tile-label">Operations readiness</span>
-            </a>
-            <a class="tile" role="listitem" href="#contact">
-              <img src="assets/us-government.jpg" alt="Government building" loading="lazy" decoding="async" />
-              <span class="tile-label">Government mission support</span>
-            </a>
-          </div>
-
-            <div class="two-col" style="margin-top:14px">
-              <div class="service">
-                <h3>NAICS</h3>
-                <ul class="list">
-                  <li><strong>562991</strong> ù Septic Tank and Related Services</li>
-                  <li>Additional NAICS available upon request</li>
-                </ul>
-              </div>
-              <div class="service">
-                <h3>How we execute</h3>
-                <ul class="list">
-                  <li>Clear scope confirmation and schedule alignment</li>
-                  <li>Compliance-first delivery and closeout documentation</li>
-                  <li>Rapid communications for COs and primes</li>
-                </ul>
-              </div>
-            </div>
-        </div>
-      </section>
-
-      <section id="performance" class="section" aria-label="Past Performance">
-        <div class="container">
-          <div class="panel pad">
-            <h2>Past performance / active work</h2>
-            <p class="lead" style="margin-top:0">
-              Past performance details can be provided on request. We are actively pursuing opportunities aligned with our NAICS registrations and teaming partnerships.
-            </p>
-            <div class="two-col">
-              <div class="service">
-                <h3>What we can share quickly</h3>
-                <ul class="list">
-                  <li>Capability statement (PDF)</li>
-                  <li>Teaming / subcontractor availability</li>
-                  <li>Coverage area and response timelines</li>
-                </ul>
-              </div>
-              <div class="service">
-                <h3>Currently pursuing</h3>
-                <ul class="list">
-                  <li>Set-aside requirements suitable for small business primes</li>
-                  <li>Subcontracting roles under primes in aligned NAICS domains</li>
-                  <li>Task orders requiring flexible coordination and rapid delivery</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section" aria-label="Contact">
-        <div class="container">
-          <div class="panel pad">
-            <h2>Contact</h2>
-            <div class="two-col" style="align-items:start">
-              <div>
-                <p class="lead" style="margin-top:0">For solicitations, teaming, or capability introductions, reach out any time.</p>
-                <div class="kv" aria-label="Contact details">
-                  <div>Name</div><div>Stan</div>
-                  <div>Phone</div><div><a href="tel:+16039696375">603-969-6375</a></div>
-                  <div>Email</div><div><a href="mailto:stan@vectorsystemsco.com">stan@vectorsystemsco.com</a></div>
-                  <div>Address</div><div>Portsmouth, NH 03801</div>
-                  <div>CAGE</div><div>1ZMB1</div>
-                  <div>UEI</div><div>MMU3HA91QZS1</div>
-                </div>
-              </div>
-
-              <div class="service" aria-label="Contact form">
-                <h3>Send a message</h3>
-                <form id="contactForm">
-                  <div>
-                    <label for="name">Name</label>
-                    <input id="name" name="name" autocomplete="name" required />
-                  </div>
-                  <div>
-                    <label for="company">Company / Agency</label>
-                    <input id="company" name="company" autocomplete="organization" />
-                  </div>
-                  <div>
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required />
-                  </div>
-                  <div>
-                    <label for="phone">Phone (optional)</label>
-                    <input id="phone" name="phone" type="tel" autocomplete="tel" />
-                  </div>
-                  <div style="grid-column:1/-1">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required placeholder="Tell us what you need (scope, timeline, location, and any solicitation number)."></textarea>
-                  </div>
-                  <div class="form-actions">
-                    <button class="btn primary" type="submit">Open email draft</button>
-                    <div class="hint">This form opens your email client (no data is stored on this website).</div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer aria-label="Footer">
-      <div class="container foot">
-        <div class="meta" aria-label="Identifiers">
-          <span class="chip">CAGE: <strong>1ZMB1</strong></span>
-          <span class="chip">UEI: <strong>MMU3HA91QZS1</strong></span>
-          <span class="chip">NAICS: <strong>562991</strong></span>
-          <span class="chip">SAM.gov: <strong>Registered</strong></span>
-        </div>
-        <small>&copy; <span id="year"></span> Vector Systems Group LLC. Portsmouth, NH.</small>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      (function () {
-        var yearEl = document.getElementById("year");
-        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+    <section class="agencies s" id="agencies" aria-label="Agencies we serve">
+      <div class="container">
+        <div class="s-head">
+          <div class="s-eyebrow">Federal alignment</div>
+          <h2 class="s-title">Agencies We Serve</h2>
+          <p class="s-text">We pursue and support requirements aligned with the missions of the federal customers below.</p>
+        </div>
+        <div class="agency-row" role="list">
+          <div class="agency" role="listitem" aria-label="U.S. Navy">
+            <div class="agency-medal">USN</div>
+            <div class="agency-name">U.S. Navy</div>
+            <div class="agency-sub">Department of the Navy</div>
+          </div>
+          <div class="agency" role="listitem" aria-label="U.S. Air Force">
+            <div class="agency-medal">USAF</div>
+            <div class="agency-name">U.S. Air Force</div>
+            <div class="agency-sub">Department of the Air Force</div>
+          </div>
+          <div class="agency" role="listitem" aria-label="U.S. Army">
+            <div class="agency-medal">USA</div>
+            <div class="agency-name">U.S. Army</div>
+            <div class="agency-sub">Department of the Army</div>
+          </div>
+          <div class="agency" role="listitem" aria-label="Department of Defense">
+            <div class="agency-medal">DoD</div>
+            <div class="agency-name">Dept. of Defense</div>
+            <div class="agency-sub">All Service Branches</div>
+          </div>
+          <div class="agency" role="listitem" aria-label="General Services Administration">
+            <div class="agency-medal">GSA</div>
+            <div class="agency-name">GSA</div>
+            <div class="agency-sub">General Services Admin.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        var form = document.getElementById("contactForm");
-        if (!form) return;
+    <section class="who s" id="who" aria-label="Who we are">
+      <div class="container">
+        <div class="who-grid">
+          <div class="who-image">
+            <img src="assets/planning.jpg" alt="Project planning and coordination meeting" loading="lazy" decoding="async" />
+          </div>
+          <div class="who-copy">
+            <div class="s-eyebrow">Who We Are</div>
+            <h2>US-based Small Business Contractor in Portsmouth, NH</h2>
+            <p>
+              Vector Systems Group LLC is a Portsmouth, New Hampshire based limited liability company actively pursuing federal service contracts. We specialize in environmental services and facilities support, and execute work directly or with a trusted subcontractor network when scope demands additional capacity.
+            </p>
+            <p>
+              Our approach is straightforward: clear scope confirmation, compliance-first execution, and rapid communication with contracting officers and prime contractors.
+            </p>
+            <div class="who-ids" aria-label="Identifiers">
+              <span class="who-id"><b>UEI</b> MMU3HA91QZS1</span>
+              <span class="who-id"><b>CAGE</b> 1ZMB1</span>
+              <span class="who-id"><b>NAICS</b> 562991</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
+    <section class="services s" id="services" aria-label="Services">
+      <div class="container">
+        <div class="s-head">
+          <div class="s-eyebrow">What we offer</div>
+          <h2 class="s-title">Services</h2>
+          <p class="s-text">Practical contracting services with clear documentation and partner-enabled scalability.</p>
+        </div>
+        <div class="service-grid" role="list">
+          <article class="service" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 6 6 9 6 13a6 6 0 1 1-12 0c0-4 2-7 6-13z"/></svg>
+            </div>
+            <h3>Sanitary &amp; Waste Services</h3>
+            <p>Coordination and support for sanitary and waste-related requirements aligned to NAICS 562991. We manage routine and non-routine tasking with documented closeout.</p>
+          </article>
+          <article class="service" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+            </div>
+            <h3>Facilities Support</h3>
+            <p>Responsive support services for facility operations, on-site coordination, and scheduling. We provide compliant execution and timely status reporting.</p>
+          </article>
+          <article class="service" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><circle cx="17" cy="10" r="3"/><path d="M22 21a5 5 0 0 0-5-5"/></svg>
+            </div>
+            <h3>Subcontractor Management</h3>
+            <p>We engage and manage a network of trusted subcontractors to scale staffing, logistics, and specialty coverage. Single point of contact and accountable delivery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          var name = document.getElementById("name").value.trim();
-          var company = document.getElementById("company").value.trim();
-          var email = document.getElementById("email").value.trim();
-          var phone = document.getElementById("phone").value.trim();
-          var message = document.getElementById("message").value.trim();
+    <section class="why s" id="capabilities" aria-label="Capabilities and why choose us">
+      <div class="container">
+        <div class="s-head">
+          <div class="s-eyebrow">Why choose us</div>
+          <h2 class="s-title">Capabilities &amp; Differentiators</h2>
+          <p class="s-text">Built for federal contracting with credibility, coverage, and accountability.</p>
+        </div>
+        <div class="why-grid" role="list">
+          <div class="why-card" role="listitem">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>SAM.gov Registered</h3>
+            <p>Active SAM.gov registration with current CAGE 1ZMB1 and UEI MMU3HA91QZS1 ó ready for award.</p>
+          </div>
+          <div class="why-card" role="listitem">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 14h4"/></svg>
+            </div>
+            <h3>Bonded &amp; Insured</h3>
+            <p>Bonding and insurance coverage available to support contract requirements as needed.</p>
+          </div>
+          <div class="why-card" role="listitem">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+            </div>
+            <h3>Proven Subcontractor Network</h3>
+            <p>Trusted partners give us reach for staffing, logistics, and specialty work without sacrificing accountability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          var subject = "Vector Systems Group LLC ó Website inquiry";
-          var lines = [
-            "Name: " + name,
-            company ? "Company/Agency: " + company : null,
-            "Email: " + email,
-            phone ? "Phone: " + phone : null,
-            "",
-            "Message:",
-            message
-          ].filter(Boolean);
+    <section class="contact s" id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="s-eyebrow">Get in touch</div>
+            <h2>Contact Vector Systems Group</h2>
+            <p>For solicitations, teaming, or capability introductions, send us a note and we'll respond promptly.</p>
+            <ul class="contact-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19 19 0 0 1 3 5.11 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.27 1L8 11a16 16 0 0 0 5 5l1.25-1.82a1 1 0 0 1 1-.27l4 1a1 1 0 0 1 .75 1z"/></svg>
+                <a href="tel:+16039696375">603-969-6375</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+                <a href="mailto:stan@vectorsystemsco.com">stan@vectorsystemsco.com</a>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Portsmouth, NH 03801</span>
+              </li>
+            </ul>
+          </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required placeholder="Tell us about your requirement, scope, or solicitation."></textarea>
+            </div>
+            <button class="btn btn--accent" type="submit">Submit</button>
+            <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
-          var body = encodeURIComponent(lines.join("\n"));
-          var href = "mailto:stan@vectorsystemsco.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
-          window.location.href = href;
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="footer-logo" aria-hidden="true">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="180" height="180" rx="18" fill="#FFFFFF"/>
+                <polygon points="45,55 100,150 155,55 134,55 100,115 66,55" fill="#1B3A6B"/>
+                <rect x="91" y="104" width="18" height="68" rx="4" fill="#4A90D9"/>
+              </svg>
+            </span>
+            <div>
+              <div class="footer-name">Vector Systems Group LLC</div>
+              <div class="footer-tag">Small Business Federal Contractor ∑ Portsmouth, NH</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#who">Who We Are</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Identifiers</h4>
+          <div class="footer-codes">
+            CAGE: <b>1ZMB1</b><br />
+            UEI: <b>MMU3HA91QZS1</b><br />
+            NAICS: <b>562991</b><br />
+            SAM.gov: <b>Registered</b>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Vector Systems Group LLC. All rights reserved.</span>
+        <span>Portsmouth, NH ∑ 603-969-6375 ∑ stan@vectorsystemsco.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var y = document.getElementById('year');
+      if (y) y.textContent = String(new Date().getFullYear());
+
+      var btn = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      if (btn && links) {
+        btn.addEventListener('click', function () {
+          var open = links.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         });
-      })();
-    </script>
-  </body>
+        links.addEventListener('click', function (e) {
+          var t = e.target;
+          if (t && t.tagName === 'A' && links.classList.contains('is-open')) {
+            links.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-label', 'Open menu');
+          }
+        });
+      }
+
+      var form = document.getElementById('contactForm');
+      var msg = document.getElementById('formMsg');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var name = (document.getElementById('cf-name').value || '').trim();
+          var email = (document.getElementById('cf-email').value || '').trim();
+          var message = (document.getElementById('cf-message').value || '').trim();
+          if (!name || !email || !message) {
+            if (msg) {
+              msg.className = 'form-msg form-msg--err';
+              msg.textContent = 'Please complete all fields.';
+            }
+            return;
+          }
+          var subject = 'Vector Systems Group ó Website inquiry';
+          var bodyLines = [
+            'Name: ' + name,
+            'Email: ' + email,
+            '',
+            'Message:',
+            message
+          ];
+          var href = 'mailto:stan@vectorsystemsco.com'
+            + '?subject=' + encodeURIComponent(subject)
+            + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+          window.location.href = href;
+          if (msg) {
+            msg.className = 'form-msg form-msg--ok';
+            msg.textContent = 'Opening your email client to send the messageÖ';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
 </html>
